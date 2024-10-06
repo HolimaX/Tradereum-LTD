@@ -5,7 +5,7 @@ version: 2.1
 executors:
   node-executor:
     docker:
-      - image: circleci/node:14
+      - image: cimg/node:22.9.0-browsers
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
           command: 'npm install && npm audit fix'
       - run:
           name: Configuring permissions
-          command: sudo chown -R $USER /usr/local/lib/node_modules
+          command: chown -R $USER /usr/local/lib/node_modules
       - run:
           name: Install solcjs
           command: npm install -g solc
