@@ -16,6 +16,9 @@ jobs:
           name: Install Dependencies
           command: 'npm install && npm audit fix'
       - run:
+          name: Configuring permissions
+          command: sudo chown -R $USER /usr/local/lib/node_modules
+      - run:
           name: Install solcjs
           command: npm install -g solc
       - run:
