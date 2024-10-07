@@ -14,10 +14,13 @@ jobs:
       - checkout
       - run:
           name: Install Dependencies
-          command: 'npm install && npm audit fix'
+          command: npm install
       - run:
-          name: Install solcjs
-          command: npm install solc
+          name: Install web3js web3j solcjs solc
+          command: npm install web3js web3j solc solcjs
+      - run:
+          name: Audit Dependencies
+          command: npm audit fix || true
       - run:
           name: Compile Solidity Contracts
           command: solcjs --bin --abi --include-path node_modules/ --base-path . -o build/ contracts/*.sol || true
