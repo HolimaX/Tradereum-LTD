@@ -16,8 +16,8 @@ jobs:
           name: Install Dependencies
           command: npm install
       - run:
-          name: Install web3js web3j solc-js solc
-          command: npm install web3js web3j solc-js solc
+          name: Install web3js solc-js solc
+          command: npm install web3 solc-js solc
       - run:
           name: Audit Dependencies
           command: npm audit fix || true
